@@ -21,38 +21,38 @@ def index():
 
 def cesar():
     import sys
-import os
+    import os
 
-print ("")
-print ("Script per a calcular la contrasenya d\'un ajuntament")
-print ("El primer argument es el nom del municipi") 
-print("")
-print("")
+    print ("")
+    print ("Script per a calcular la contrasenya d\'un ajuntament")
+    print ("El primer argument es el nom del municipi") 
+    print("")
+    print("")
 
-dicc_vocals = {"a":5,"e":4,"i":3,"o":2,"u":1}
+    dicc_vocals = {"a":5,"e":4,"i":3,"o":2,"u":1}
 
-nom_municipi = sys.argv[1]
-contrasenya = ""
-i=0
-while i < len(nom_municipi):
-	if dicc_vocals.has_key(nom_municipi[i]):
-		lletra = dicc_vocals[nom_municipi[i]]
-		contrasenya = contrasenya + str(lletra)
-	else:
-		posicio = ord(nom_municipi[i])
-		if posicio == 121:
-			contrasenya = contrasenya + chr(97)
-		elif posicio == 122:
-			contrasenya = contrasenya + chr(98)	
-		else: 
-			contrasenya = contrasenya + chr(posicio + 2)
-	i = i + 1
+    nom_municipi = sys.argv[1]
+    contrasenya = ""
+    i=0
+    while i < len(nom_municipi):
+        if dicc_vocals.has_key(nom_municipi[i]):
+            lletra = dicc_vocals[nom_municipi[i]]
+            contrasenya = contrasenya + str(lletra)
+        else:
+            posicio = ord(nom_municipi[i])
+            if posicio == 121:
+                contrasenya = contrasenya + chr(97)
+            elif posicio == 122:
+                contrasenya = contrasenya + chr(98)	
+            else: 
+                contrasenya = contrasenya + chr(posicio + 2)
+        i = i + 1
 
-outfile = open(nom_municipi+'.txt', 'w') # Indicamos el valor 'w'
-outfile.write("_"+contrasenya)
-outfile.close()
+    outfile = open(nom_municipi+'.txt', 'w') # Indicamos el valor 'w'
+    outfile.write("_"+contrasenya)
+    outfile.close()
 
-print "_"+contrasenya
+    print "_"+contrasenya
 
 
 
